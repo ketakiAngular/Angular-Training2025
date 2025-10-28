@@ -1,0 +1,10 @@
+<p>product works!</p>
+<div class="product">
+      <h2>{{ title }}</h2>
+      <img [src]="imageURL" [alt]="title" width="150" />
+      <p>Price: {{ price | currency :'INR' }}</p>
+       <app-counter
+      [count]="likes"
+      (likesChange)=" takeValuefromchild($event)">
+    </app-counter>
+    </div>
