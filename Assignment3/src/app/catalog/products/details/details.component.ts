@@ -9,7 +9,7 @@ import { CounterComponent } from '../counter/counter.component';
   standalone: true,
   imports: [CommonModule,CounterComponent],
   templateUrl: './details.component.html',
-  styleUrl: './details.component.css'
+  styleUrl: './details.component.scss'
 })
 export class DetailsComponent implements OnInit {
  
