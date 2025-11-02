@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-export class Credential {
-  constructor(public email: string, public password: string) {}
+import { Router } from '@angular/router';
+export class Credential  {
+  constructor(public  email:string,public  password:string){  }
 }
 
 @Component({
@@ -12,19 +12,31 @@ export class Credential {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.scss',
+  styleUrl: './sign-in.component.css'
 })
 export class SignInComponent {
-  isValidUser: boolean = false;
-  user: Credential = new Credential('ravi.tambade@transflower.in', 'seed');
 
-  constructor(private svc: AuthService) {} //DI
+  email = '';
+  password = '';
+  errorMessage = '';
+ 
+  constructor(private router: Router) {}
+ onLogin() {
+    
+    const validUser = {
+      email: 'admin',
+      password: '12345'
+    };
 
-  onSubmit(form: any) {
-    if (this.svc.validate(this.user.email, this.user.password)) {
-      console.log('Valid User!');
+    if (this.email === validUser.email && this.password === validUser.password) {
+      this.errorMessage = '';
+      alert('Login successful!');
     } else {
-      console.log('Invalid User!');
+      this.errorMessage = 'Invalid email or password';
     }
   }
+ navigateToRegister()
+ {
+  alert('navigateToRegister!');
+ }
 }

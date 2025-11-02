@@ -5,7 +5,7 @@ import { Component, Input, Output ,EventEmitter} from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './counter.component.html',
-  styleUrl: './counter.component.scss'
+  styleUrl: './counter.component.css'
 })
 export class CounterComponent {
 

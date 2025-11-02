@@ -9,17 +9,19 @@ import { DetailsComponent } from '../details/details.component';
   standalone: true,
   imports: [CommonModule, DetailsComponent],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss',
+  styleUrl: './list.component.css'
 })
 export class ListComponent implements OnInit {
   products: Product[] = [];
   constructor(private productService: ProductService) {}
 
+
   ngOnInit() {
     this.loadProducts();
   }
-
+  
   loadProducts() {
-    this.products = this.productService.getAll();
-  }
+     this.products=this.productService.getAll();     
+  };
+
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Item as CartItem } from '../models/Item';
+import { CartService } from '../cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,17 +9,34 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss',
+  styleUrl: './cart.component.css'
 })
 export class CartComponent {
   cartItems: CartItem[] = [];
   totalPrice = 0;
 
-  constructor() {}
+  constructor(private cartService: CartService) { }
 
-  loadCart() {}
+  ngOnInit() {
+    this.loadCart();
+  }
+  loadCart() {
+    this.cartItems = this.cartService.getCartItems();
+  }
 
-  removeItem(id: number) {}
+  removeItem(id: number) { 
+     this.cartService.removeFromCart(id);
+    this.loadCart();}
 
-  clearCart() {}
+  clearCart() {
+    this.cartService.clearCart();
+    this.loadCart();
+  }
+
+  getTotalPrice() {
+    return this.cartService.getTotalPrice();
+  }
+  getTotalItems() {
+    return this.cartService.getTotalItems();
+  }
 }

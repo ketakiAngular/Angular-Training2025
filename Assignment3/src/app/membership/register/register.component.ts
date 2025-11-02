@@ -8,20 +8,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+  styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  model = new Customer(
-    'Ravi',
-    'Tambade',
-    'ravi.tambade@transflower.in',
-    9881735801,
-    28,
-    new Date(1975, 18, 8),
-    'Pune',
-    'S',
-    false,
-    ['T', 'B']
-  );
-  constructor() {}
+    model = new Customer('Ravi','Tambade','ravi.tambade@transflower.in',9881735801,28,
+                     new Date(1975,18,8),'Pune',
+                     'S',
+                     false,['T', 'B']);
+    constructor() {  }
+
 }

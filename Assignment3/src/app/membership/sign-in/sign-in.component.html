@@ -1,24 +1,18 @@
-<div>
-  <h1>Login</h1>
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+    <div>
+      <label>Email</label>
+      <input type="text" name="email" [(ngModel)]="email" required placeholder="Enter email" />
+    </div>
 
-  <div>
-    <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
-      <table>
-        <tr>
-          <td><label>Email:</label></td>
-          <td>
-            <input type="email" name="userEmail" [(ngModel)]="user.email" required
-              pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" #userName="ngModel" />
-        </tr>
-        <tr>
-          <td><label>Password:</label></td>
-          <input type="password" name="userPassword" [(ngModel)]="user.password" #userPassword="ngModel" required />
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" required placeholder="Enter password" />
+    </div>
 
-        </tr>
-        <tr>
-          <td><button type="submit"> Submit</button> </td>
-        </tr>
-      </table>
-    </form>
-  </div>
+    <button type="submit">Login</button>
+    <button type="button" (click)="navigateToRegister()">Register</button>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
 </div>

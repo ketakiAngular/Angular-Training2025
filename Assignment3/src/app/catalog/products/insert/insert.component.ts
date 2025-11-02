@@ -7,7 +7,7 @@ import { CounterComponent } from '../counter/counter.component';
   standalone: true,
   imports: [FormsModule,CounterComponent],
   templateUrl: './insert.component.html',
-  styleUrl: './insert.component.scss'
+  styleUrl: './insert.component.css'
 })
 export class InsertComponent {
 
